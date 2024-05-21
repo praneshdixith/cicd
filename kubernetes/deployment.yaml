@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopify-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: shopify
+  template:
+    metadata:
+      labels:
+        app: shopify
+    spec:
+      containers:
+      - name: shopify
+        image: your-dockerhub-username/shopify:latest
+        ports:
+        - containerPort: 8080
